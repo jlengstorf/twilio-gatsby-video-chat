@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  background: darkblue;
+  color: white;
+}
+
+main {
+  margin: 5rem auto;
+  max-width: 90vw;
+}
+
+.start-form button,
+.start-form label,
+.start-form input {
+  display: block;
+}
+
+.chat {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 90vw;
+}
+
+.chat video {
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "twilio-gatsby-video-chat",
+  "description": "A video chat app using Twilio and Gatsby.",
+  "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "gatsby": "^2.15.7",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "twilio": "^3.34.0",
+    "twilio-video": "^2.0.0-beta13"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlengstorf/twilio-gatsby-video-chat"
+  }
+}
