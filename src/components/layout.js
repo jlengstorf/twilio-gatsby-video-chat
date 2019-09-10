@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import './layout.css';
 
 const Layout = ({ children }) => (
   <>
     <header>
-      <span>Video Chat App</span>
+      <Link to="/">Video Chat App</Link>
     </header>
     <main>{children}</main>
   </>
