@@ -1,21 +1,40 @@
 html,
 body {
+  color: #444;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
 }
 
 header {
   background: darkblue;
   color: white;
+  padding: 1rem;
 }
 
 main {
   margin: 5rem auto;
   max-width: 90vw;
+}
+
+h1 {
+  color: #222;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.start-form {
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+  max-width: 30rem;
+  padding: 1.5rem;
 }
 
 .start-form button,
@@ -24,9 +43,35 @@ main {
   display: block;
 }
 
+.start-form label {
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.start-form input {
+  color: #333;
+  font-size: 1rem;
+  margin: 0.25rem 0 1rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.start-form button {
+  background: darkblue;
+  border: 0;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 .chat {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   max-width: 90vw;
 }
