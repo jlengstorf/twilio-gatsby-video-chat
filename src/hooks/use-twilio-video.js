@@ -55,6 +55,35 @@ const useTwilioVideo = () => {
     dispatch({ type: 'join', token: result.data, identity, roomName });
   };
 
+  const handleRemoteParticipant = container => participant => {
+    const id = participant.sid;
+
+    const addTrack = track => {
+      const container = document.getElementById(id);
+      const media = track.attach();
+
+      container.appendChild(media);
+    };
+
+    const el = document.createElement('div');
+    el.id = id;
+    el.className = 'remote-participant';
+
+    const name = document.createElement('h4');
+    name.innerText = participant.identity;
+    el.appendChild(name);
+
+    container.appendChild(el);
+
+    participant.tracks.forEach(publication => {
+      if (publication.isSubscribed) {
+        addTrack(publication.track);
+      }
+    });
+
+    participant.on('trackSubscribed', addTrack);
+  };
+
   const connectToRoom = async () => {
     if (!state.token) {
       return;
@@ -82,6 +111,11 @@ const useTwilioVideo = () => {
 
       videoRef.current.appendChild(localEl);
     }
+
+    const handleParticipant = handleRemoteParticipant(videoRef.current);
+
+    room.participants.forEach(handleParticipant);
+    room.on('participantConnected', handleParticipant);
 
     dispatch({ type: 'set-active-room', room });
   };
