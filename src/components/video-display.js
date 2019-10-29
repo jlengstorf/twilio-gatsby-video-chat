@@ -36,7 +36,11 @@ const VideoDisplay = ({ roomID }) => {
   return (
     <>
       <h1>Room: “{roomID}”</h1>
-      {activeRoom && <button onClick={leaveRoom}>Leave Room</button>}
+      {activeRoom && (
+        <button className="leave-room" onClick={leaveRoom}>
+          Leave Room
+        </button>
+      )}
       <div className="chat" ref={videoRef} />
     </>
   );

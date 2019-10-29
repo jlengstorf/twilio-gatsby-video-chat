@@ -7,7 +7,6 @@ const Room = () => (
   <Layout>
     <Router>
       <VideoDisplay path="room/:roomID" />
-      <VideoDisplay default />
     </Router>
   </Layout>
 );

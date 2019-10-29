@@ -6,6 +6,7 @@ WIP — this code is in various stages of chaos right now.
 
 ### Get an API Key and Secret
 -   Navigate to the [API Keys](https://www.twilio.com/console/project/api-keys) dashboard
+    - Dashboard => Settings => API Keys
 -   Create a new “Standard” API key
 -   Give it a friendly name so you remember what it’s for
 -   Copy the SID — this is your API key — and store it in a secure place
@@ -23,7 +24,7 @@ WIP — this code is in various stages of chaos right now.
 ### Create a Serverless Function in Twilio
 
 -   Navigate to the [functions console](https://twilio.com/console/functions/manage)
--   Create a new function named “Create Room Token”
+-   Create a new function named “Create Room Token” using the "Blank" template
 -   For the path, use `/create-room-token`
 -   Click the copy button next to the path and store this; we’ll use it in the app later
 -   Uncheck the box for “Check for valid Twilio signature”

@@ -19,6 +19,13 @@ header {
   padding: 1rem;
 }
 
+header a {
+  color: inherit;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 main {
   margin: 5rem auto;
   max-width: 90vw;
@@ -57,7 +64,8 @@ h1 {
   width: 100%;
 }
 
-.start-form button {
+.start-form button,
+.leave-room {
   background: darkblue;
   border: 0;
   color: white;
@@ -69,13 +77,49 @@ h1 {
   width: 100%;
 }
 
+.leave-room {
+  border-radius: 0.5rem;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 170px;
+}
+
 .chat {
   display: grid;
   grid-gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   max-width: 90vw;
+  position: relative;
+}
+
+.chat h4 {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-top-right-radius: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1;
+  padding: 0.375rem 0.75rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.remote-participant {
+  position: relative;
+}
+
+.chat div {
+  display: block;
 }
 
 .chat video {
+  display: block;
   width: 100%;
 }

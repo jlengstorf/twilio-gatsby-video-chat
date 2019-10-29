@@ -10,7 +10,6 @@ const initialContext = {
 };
 
 const reducer = (store, action) => {
-  console.log({ store, action });
   switch (action.type) {
     case 'join':
       return {
@@ -31,7 +30,7 @@ const reducer = (store, action) => {
       return initialContext;
 
     default:
-      console.log(`Unknown action type: ${action.type}`);
+      console.error(`Unknown action type: ${action.type}`);
       return store;
   }
 };
@@ -49,13 +48,27 @@ export const wrapRootElement = ({ element }) => (
 );
 
 const handleRemoteParticipant = container => participant => {
-  const addTrack = track => {
-    // Create an HTML element to show the track (e.g. <audio> or <video>).
-    const el = track.attach();
+  const id = participant.sid;
 
-    // Attach the new element to the DOM.
-    container.appendChild(el);
+  const addTrack = track => {
+    const container = document.getElementById(id);
+
+    // Create an HTML element to show the track (e.g. <audio> or <video>).
+    const media = track.attach();
+
+    container.appendChild(media);
   };
+
+  const el = document.createElement('div');
+  el.id = id;
+  el.className = 'remote-participant';
+
+  const name = document.createElement('h4');
+  name.innerText = participant.identity;
+  el.appendChild(name);
+
+  // Attach the new element to the DOM.
+  container.appendChild(el);
 
   // Attach existing participant audio and video tracks to the DOM.
   participant.tracks.forEach(publication => {
@@ -71,6 +84,8 @@ const handleRemoteParticipant = container => participant => {
   participant.on('trackUnsubscribed', track => {
     // Get a list of elements from detach and remove them from the DOM.
     track.detach().forEach(el => el.remove());
+    const container = document.getElementById(id);
+    if (container) container.remove();
   });
 };
 
@@ -91,7 +106,6 @@ const useTwilioVideo = () => {
 
   const connectToRoom = async () => {
     if (!token) {
-      console.log('connectToRoom no token');
       return;
     }
 
