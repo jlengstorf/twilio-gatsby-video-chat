@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useRef } from 'react';
 import axios from 'axios';
-import { connect, createLocalVideoTrack } from 'twilio-video';
+import { connect } from 'twilio-video';
 
 const TWILIO_TOKEN_URL =
   'https://jasmine-greyhound-8600.twil.io/get-room-token';
@@ -112,9 +112,7 @@ const useTwilioVideo = () => {
       console.error(`Unable to join the room: ${error.message}`);
     });
 
-    const localTrack = await createLocalVideoTrack().catch(error => {
-      console.error(`Unable to create a local video track: ${error.message}`);
-    });
+    const localTrack = [...room.localParticipant.videoTracks.values()][0].track;
 
     // Attach the video to the videoRef
     if (!videoRef.current.hasChildNodes()) {
