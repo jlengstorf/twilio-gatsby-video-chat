@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
+import useTwilioVideo from '../hooks/use-twilio-video';
 
 const Join = () => {
+  const { state, dispatch } = useTwilioVideo();
   const [identity, setIdentity] = useState('');
   const [roomName, setRoomName] = useState('');
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    dispatch({ type: 'join', identity, roomName });
+  };
 
   return (
     <>
       <h1>Start or Join a Video Call</h1>
-      <form className="start-form">
+      <pre>{JSON.stringify(state, null, 2)}</pre>
+      <form className="start-form" onSubmit={handleSubmit}>
         <label htmlFor="identity">
           Display name:
           <input
