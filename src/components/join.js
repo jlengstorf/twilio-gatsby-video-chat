@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import useTwilioVideo from '../hooks/use-twilio-video';
 
 const Join = () => {
-  const { state, dispatch } = useTwilioVideo();
+  const { state, getRoomToken } = useTwilioVideo();
   const [identity, setIdentity] = useState('');
   const [roomName, setRoomName] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    dispatch({ type: 'join', identity, roomName });
+    getRoomToken({ identity, roomName });
   };
 
   return (
